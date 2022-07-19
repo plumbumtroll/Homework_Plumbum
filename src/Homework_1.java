@@ -82,6 +82,8 @@ public class Homework_1 {
         StringLtoR = StringLtoR.replace('l', 'r').toUpperCase().substring(0, 8);
         System.out.println((StringLtoR));
 
+//      Попробовать запушить изменения
+
         //Экспертный уровень
         //Задача №1
         //Создать метод маскирования персональных данных, который:
