@@ -133,7 +133,17 @@ public class Homework_2_SSA {
         // Дано:
         double increment = 0.01123;
         double result = 0;
+        // Другой инкремент для проверки:
+        // double increment = 2;
         // Вывести на экран, количество итераций, которое потребовалось, чтобы дойти до миллиона.
+        double count = 0;
+        if (result >= 0) {
+            while (result < 1000000) {
+                result = result + increment;
+                count++;
+            }
+            System.out.println("Количество совершённых итераций: " + count);
+        }
         // Если число отрицательное, то сразу заканчиваем цикл, ничего не выводя.
         // Внимание: число может измениться, и не должно приводить к изменению вашего кода.
 
@@ -141,6 +151,23 @@ public class Homework_2_SSA {
         // Например, дано: [1,1,1,1,1]
         // Ожидаемый результат: [0,1,0,1,0]
         // Подсказка: прочитай про операнд "%".
+        byte[] binaryArray = {1, 1, 1, 1, 1, 1, 1, 1};
+        // Вывожу первоначальный массив:
+        for (int i = 0; i < binaryArray.length; i++) {
+            System.out.print(binaryArray[i] + " ");
+        }
+        // Заменяю чётные члены массива нулями:
+        for (int i = 0; i < binaryArray.length; i++) {
+            if (i % 2 == 0) {
+                binaryArray[i] = 0;
+            }
+        }
+        System.out.println();
+        // Вывожу обработанный массив:
+        for (int i = 0; i < binaryArray.length; i++) {
+            System.out.print(binaryArray[i] + " ");
+        }
+        System.out.println();
 
         // Задание №3:
         // Дано:
@@ -151,15 +178,44 @@ public class Homework_2_SSA {
         boolean hasWheelsProblem = true;
         // В автосервис приехала сломанная машина. Механики находят неисправность следующим способом:
         // Если у машины нет бензина и ничего не сломано, то отдают машину владельцу и берут 1000 рублей за консультацию.
+        double price = 0;
+        int problemCount = 0;
+        if ((!hasFuel)&&!(hasElectricsProblem&&hasMotorProblem&&hasWheelsProblem&&hasTransmissionProblem)) {
+            System.out.println("Машина исправна, цена консультации - 1000 рублей.");
+        }
         // Если у машины проблема с двигателем, то чинят и берут 10 000.
+        if (hasMotorProblem) {
+            problemCount = problemCount + 1;
+            price = price + 10000;
+        }
         // Если у машины проблема с электрикой, то чинят и берут 5000.
+        if (hasElectricsProblem) {
+            problemCount = problemCount + 1;
+            price = price + 5000;
+        }
         // Если у машины проблема с коробкой передач, то чинят и берут 4000.
+        if (hasTransmissionProblem) {
+            problemCount = problemCount + 1;
+            price = price + 4000;
+        }
         // Если у машины проблема с колесами, то чинят и берут 2000.
+        if (hasWheelsProblem) {
+            problemCount = problemCount + 1;
+            price = price + 2000;
+        }
         // Если две детали сломаны, то на общий счет идет скидка 10%.
+        if (problemCount >= 2) {
+            price = 0.9 * price;
+        }
         // Если сломана коробка передач, и электрика или двигатель, то на общий счет скидка 20%.
+        if (hasTransmissionProblem&&(hasElectricsProblem||hasMotorProblem)) {
+            price = price * 0.8;
+        }
         // Если нет бензина и что-то сломано, то за консультацию денег не берут.
         // Ситуации, что бензин есть и ничего не сломано - быть не может.
         // Ожидаемый результат: выведен на экран счет клиенту.
+        System.out.println("Цена за ремонт = " + price);
+
 
         // Задание №4:
         // Написать систему управления складскими запасами. Создать класс склад, создать класс работники
