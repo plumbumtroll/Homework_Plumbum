@@ -21,16 +21,17 @@ public class Homework_2_SSA {
         // Проверьте работоспособность условий, через изменение значения переменной.
 
         // Способ 1:
-        if (ageChildren < 6) {
+        double ageChildren1 = 13.5;
+        if (ageChildren1 < 6) {
             System.out.println("пошел в детский сад");
         }
-        if ((ageChildren >= 6) && (ageChildren < 11)) {
+        if ((ageChildren1 >= 6) && (ageChildren1 < 11)) {
             System.out.println("пошел в младшую школу");
         }
-        if ((ageChildren >= 11) && (ageChildren < 17)) {
+        if ((ageChildren1 >= 11) && (ageChildren1 < 17)) {
             System.out.println("пошел в среднюю школу");
         }
-        if (ageChildren > 17) {
+        if (ageChildren1 > 17) {
             System.out.println("пошел в университет");
         }
 
@@ -60,10 +61,10 @@ public class Homework_2_SSA {
 //        boolean eggs = false;
         // Написать набор условий, приготовления салатов, по приоритету (от Цезаря к овощному). Либо объявить о невозможности сделать салат.
         // Если у повара есть все ингредиенты для "Цезаря" (курица, овощи, соус и гренки), то лучше сделать "Цезарь".
-        if (chicken&&vegetables&&sour&&toast)
+        if (chicken && vegetables && sour && toast)
             System.out.println("Ваш Цезарь готов!");
         // Если для "Цезаря" ингредиентов не нашлось, то сделать Оливье (овощи, колбаса или курица, яйца).
-            else if (vegetables&&eggs&&(sausage||chicken))
+            else if (vegetables && eggs && (sausage||chicken))
             System.out.println("Ваш Оливье готов!");
         // Если и для Оливье не нашлось ингредиентов, то сделать Овощной салат (нужны только овощи).
             else if (vegetables)
@@ -180,7 +181,7 @@ public class Homework_2_SSA {
         // Если у машины нет бензина и ничего не сломано, то отдают машину владельцу и берут 1000 рублей за консультацию.
         double price = 0;
         int problemCount = 0;
-        if ((!hasFuel)&&!(hasElectricsProblem&&hasMotorProblem&&hasWheelsProblem&&hasTransmissionProblem)) {
+        if ((!hasFuel)&&!(hasElectricsProblem||hasMotorProblem||hasWheelsProblem||hasTransmissionProblem)) {
             System.out.println("Машина исправна, цена консультации - 1000 рублей.");
         }
         // Если у машины проблема с двигателем, то чинят и берут 10 000.
